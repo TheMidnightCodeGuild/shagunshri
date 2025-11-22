@@ -1,10 +1,14 @@
 import React from "react";
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Landing from "./Landing";
 const index = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Header />
+      <Landing />
+      <Footer />
+    </>
   );
 };
 
