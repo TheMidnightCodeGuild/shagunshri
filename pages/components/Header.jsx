@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 
+// Service categories displayed in dropdown and mobile accordion
 const SERVICES_CATEGORIES = [
   {
     title: "Investment & Documentation",
@@ -29,7 +30,6 @@ const SERVICES_CATEGORIES = [
   },
 ];
 
-// Updated MOBILE_NAV_LINKS for new mobile navbar content
 const MOBILE_NAV_LINKS = [
   {
     label: "Home",
@@ -48,7 +48,7 @@ const MOBILE_NAV_LINKS = [
   },
   {
     label: "Contact Us",
-    href: "https://partner.claimantmitra.com", // Changed to match desktop "Contact Us" external link
+    href: "/",
     isExternal: true,
   },
 ];
@@ -57,23 +57,16 @@ const Header = () => {
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-
   const mobileNavRef = useRef(null);
 
+  // Animate mobile nav
   useEffect(() => {
+    if (!mobileNavRef.current) return;
     if (mobileMenuOpen) {
       gsap.fromTo(
         mobileNavRef.current,
-        {
-          x: "100%",
-          opacity: 0,
-        },
-        {
-          x: "0%",
-          opacity: 1,
-          duration: 0.4,
-          ease: "power3.out",
-        }
+        { x: "100%", opacity: 0 },
+        { x: "0%", opacity: 1, duration: 0.4, ease: "power3.out" }
       );
     } else {
       gsap.to(mobileNavRef.current, {
@@ -87,7 +80,7 @@ const Header = () => {
 
   // Desktop dropdown for services
   const renderServicesLinks = () => (
-    <div className="flex gap-6 min-w-[28rem]">
+    <div className="flex flex-col md:flex-row gap-3 md:gap-6 min-w-[18rem] md:min-w-[28rem]">
       {SERVICES_CATEGORIES.map((category) => (
         <div key={category.title} className="flex-1 px-1">
           <div className="px-4 py-2 font-semibold text-[#1AC0D8] text-base border-b border-gray-100 mb-2">
@@ -107,19 +100,19 @@ const Header = () => {
     </div>
   );
 
-  // Mobile services menu
+  // Mobile-only services section with padding
   const renderMobileServicesLinks = () => (
-    <div className="ml-2 border-l border-gray-200 mt-2">
+    <div className="ml-0 border-l-0 md:ml-2 md:border-l md:border-gray-200 mt-2">
       {SERVICES_CATEGORIES.map((category) => (
         <div key={category.title}>
-          <div className="px-6 py-2 font-semibold text-[#1AC0D8] text-base">
+          <div className="px-4 py-2 font-semibold text-[#1AC0D8] text-base">
             {category.title}
           </div>
           {category.items.map((service) => (
             <Link
               key={service.label}
               href={service.href}
-              className="block px-8 py-2 text-gray-700 hover:bg-gray-100 rounded transition"
+              className="block px-6 py-2 text-gray-700 hover:bg-gray-100 rounded transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               {service.label}
@@ -131,15 +124,15 @@ const Header = () => {
   );
 
   return (
-    <nav className="fixed top-0 w-full z-50">
-      {/* Top bar for desktop */}
-      <div className="bg-[#F99024] text-black px-2 sm:px-5 py-2 hidden sm:block">
-        <div className="lg:max-w-[1450px] px-5 sm:px-0 mx-auto">
-          <div className="flex justify-between items-center text-sm">
-            <div className="flex items-center space-x-4">
+    <nav className="fixed top-0 w-full z-50 bg-white">
+      {/* Responsive topbar */}
+      <div className="hidden sm:block bg-[#F99024] text-black px-2 sm:px-5 py-2">
+        <div className="lg:max-w-[1450px] px-1 sm:px-5 mx-auto">
+          <div className="flex justify-between items-center text-xs sm:text-sm">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-y-1 sm:space-x-4">
               <Link
                 href="mailto:support@insurancesamadhan.com"
-                className="flex items-center hover:text-gray-200"
+                className="flex items-center hover:text-gray-200 text-xs sm:text-sm"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -155,11 +148,11 @@ const Header = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                shagunshri.invest@gmail.com
+                <span className="truncate">shagunshri.invest@gmail.com</span>
               </Link>
               <Link
                 href="tel:02269645811"
-                className="flex items-center hover:text-gray-200"
+                className="flex items-center hover:text-gray-200 text-xs sm:text-sm"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +168,7 @@ const Header = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                1243342321
+                <span className="truncate">1243342321</span>
               </Link>
             </div>
           </div>
@@ -183,21 +176,21 @@ const Header = () => {
       </div>
 
       {/* Main navbar */}
-      <div className="bg-white border-b border-black/10">
-        <div className="lg:max-w-[1350px] px-5 sm:px-5 mx-auto">
-          <div className="flex justify-between items-center">
+      <div className="border-b border-black/10 bg-white">
+        <div className="max-w-full lg:max-w-[1350px] px-3 sm:px-6 mx-auto">
+          <div className="flex justify-between items-center min-h-[70px]">
             <Link href="/" className="flex items-center justify-center">
               <Image
                 src="/images/logo.png"
                 alt="ShagunShri"
-                width={150}
-                height={100}
-                className="sm:w-24 sm:h-24 w-20 h-20 object-cover"
+                width={120}
+                height={50}
+                className="sm:w-40 sm:h-20 w-20 h-10 object-cover my-0"
                 priority
               />
             </Link>
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-6 text-black font-montserrat text-[15px] font-medium">
+            <div className="hidden md:flex items-center gap-4 lg:gap-6 text-black font-montserrat text-[15px] font-medium">
               <Link
                 href="/"
                 className="relative rounded-full py-1 transition-colors group"
@@ -208,16 +201,20 @@ const Header = () => {
               <Link
                 href="https://partner.claimantmitra.com/join/partner"
                 className="relative rounded-full py-1 transition-colors group"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Who We Are
                 <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#1AC0D8] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
               </Link>
-              <div className="relative inline-flex text-gray-800">
+              <div
+                className="relative inline-flex text-gray-800"
+                onMouseEnter={() => setServicesDropdown(true)}
+                onMouseLeave={() => setServicesDropdown(false)}
+              >
                 <button
                   type="button"
                   className="relative flex items-center gap-2 rounded-full py-1 group"
-                  onMouseEnter={() => setServicesDropdown(true)}
-                  onMouseLeave={() => setServicesDropdown(false)}
                 >
                   What We Do
                   <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#1AC0D8] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
@@ -238,13 +235,11 @@ const Header = () => {
                   </svg>
                 </button>
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 transition-all duration-200 min-w-[28rem] bg-white shadow-lg rounded-lg p-4 ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 z-40 transition-all duration-200 w-[96vw] max-w-lg md:min-w-[28rem] bg-white shadow-lg rounded-lg p-4 ${
                     servicesDropdown
                       ? "opacity-100 visible translate-y-0"
                       : "opacity-0 invisible -translate-y-2"
                   }`}
-                  onMouseEnter={() => setServicesDropdown(true)}
-                  onMouseLeave={() => setServicesDropdown(false)}
                 >
                   {renderServicesLinks()}
                 </div>
@@ -280,7 +275,7 @@ const Header = () => {
               aria-label={mobileMenuOpen ? "Close Menu" : "Open Menu"}
             >
               <svg
-                className="w-6 h-6"
+                className="w-7 h-7"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -304,22 +299,23 @@ const Header = () => {
             </button>
           </div>
 
-          {/* --- Mobile Navigation - Updated --- */}
+          {/* Mobile Navigation */}
           <div
             ref={mobileNavRef}
             className="fixed md:hidden top-0 right-0 w-full h-screen bg-white z-50"
-            style={{
-              transform: "translateX(100%)",
-              opacity: 0,
-            }}
+            style={{ transform: "translateX(100%)", opacity: 0 }}
           >
-            <div className="flex justify-between items-center px-4 py-2 border-b">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+            <div className="flex justify-between items-center px-4 py-2 border-b shadow-sm">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center"
+              >
                 <Image
                   src="/images/logo.png"
-                  alt="Claimant Mitra"
-                  width={135}
-                  height={37}
+                  alt="ShagunShri"
+                  width={110}
+                  height={40}
                   priority
                   className="h-auto w-auto"
                 />
@@ -330,7 +326,7 @@ const Header = () => {
                 aria-label="Close Mobile Menu"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-7 h-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -344,42 +340,32 @@ const Header = () => {
                 </svg>
               </button>
             </div>
-
-            {/* NEW/UPDATED MOBILE NAVBAR CONTENT */}
+            {/* Mobile nav links and content */}
             <div className="overflow-y-auto h-[calc(100vh-56px)] pb-20 text-base transition-all">
               <div className="flex flex-col p-4 gap-2">
                 {/* Main mobile navigation links */}
-                {MOBILE_NAV_LINKS.map((link, idx) =>
-                  link.label === "Home" ? (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="px-4 py-2 rounded-lg text-gray-900 font-semibold hover:bg-gray-100 transition"
-                      onClick={() => setMobileMenuOpen(false)}
-                      target={link.isExternal ? "_blank" : undefined}
-                      rel={link.isExternal ? "noopener noreferrer" : undefined}
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="px-4 py-2 rounded-lg text-gray-800 hover:bg-gray-100 transition"
-                      onClick={() => setMobileMenuOpen(false)}
-                      target={link.isExternal ? "_blank" : undefined}
-                      rel={link.isExternal ? "noopener noreferrer" : undefined}
-                    >
-                      {link.label}
-                    </Link>
-                  )
-                )}
+                {MOBILE_NAV_LINKS.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className={`px-4 py-2 rounded-lg transition ${
+                      link.label === "Home"
+                        ? "text-gray-900 font-semibold hover:bg-gray-100"
+                        : "text-gray-800 hover:bg-gray-100"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    target={link.isExternal ? "_blank" : undefined}
+                    rel={link.isExternal ? "noopener noreferrer" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
 
-                {/* "What We Do" accordion for mobile */}
+                {/* What We Do - Accordion (mobile only, always visible on mobile) */}
                 <div className="mt-1">
                   <button
                     onClick={() => setMobileServicesOpen((v) => !v)}
-                    className="flex items-center justify-between w-full px-4 py-2 text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none"
+                    className="flex items-center justify-between w-full px-4 py-2 text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none select-none"
                     aria-expanded={mobileServicesOpen}
                     aria-controls="mobile-services-dropdown"
                   >
@@ -404,7 +390,7 @@ const Header = () => {
                     id="mobile-services-dropdown"
                     className={`transition-all duration-300 overflow-hidden ${
                       mobileServicesOpen
-                        ? "max-h-[700px] opacity-100"
+                        ? "max-h-[900px] opacity-100"
                         : "max-h-0 opacity-0"
                     }`}
                   >
@@ -412,7 +398,7 @@ const Header = () => {
                   </div>
                 </div>
 
-                {/* Action Row: Partner Login, Register a complaint, Google Translate */}
+                {/* Action row for mobile (login/register/translate) */}
                 <div className="mt-4 flex flex-col gap-3 border-t border-gray-200 pt-4">
                   <Link
                     href="https://partner.claimantmitra.com"
@@ -434,9 +420,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            {/* --- END NEW/UPDATED MOBILE NAVBAR CONTENT --- */}
           </div>
-          {/* --- End Mobile Navigation --- */}
         </div>
       </div>
     </nav>
