@@ -10,6 +10,12 @@ const nextConfig = {
         port: "",
         pathname: "/assets/img/blog/**",
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

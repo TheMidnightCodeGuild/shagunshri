@@ -9,6 +9,524 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
 
+// GALLERY SLIDER COMPONENT
+const GallerySlider = () => {
+  const galleryImages = [
+    {
+      id: 1,
+      src: "https://placehold.co/600x400/000000/FFFFFF/png",
+      alt: "Gallery Image 1",
+    },
+    {
+      id: 2,
+      src: "https://placehold.co/600x400/000000/FFFFFF/png",
+      alt: "Gallery Image 2",
+    },
+    {
+      id: 3,
+      src: "https://placehold.co/600x400/000000/FFFFFF/png",
+      alt: "Gallery Image 3",
+    },
+    {
+      id: 4,
+      src: "https://placehold.co/600x400/000000/FFFFFF/png",
+      alt: "Gallery Image 4",
+    },
+    {
+      id: 5,
+      src: "https://placehold.co/600x400/000000/FFFFFF/png",
+      alt: "Gallery Image 5",
+    },
+    {
+      id: 6,
+      src: "https://placehold.co/600x400/000000/FFFFFF/png",
+      alt: "Gallery Image 6",
+    },
+  ];
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-4 text-neutral-800">
+            Our <span className="text-[#8B593E]">Gallery</span>
+          </h2>
+          <p className="text-base md:text-base text-neutral-900 max-w-4xl mx-auto">
+            Explore our collection of memorable moments
+          </p>
+        </div>
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={1}
+          spaceBetween={20}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 25,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }}
+          className="gallery-swiper"
+        >
+          {galleryImages.map((image) => (
+            <SwiperSlide key={image.id}>
+              <div className="relative h-[300px] w-full rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className="text-center mt-8">
+          <Link
+            href="/gallery"
+            className="inline-block bg-[#8B593E] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#6d4430] transition-colors duration-300 shadow-md"
+          >
+            View All
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// GALLERY SLIDER 2 COMPONENT - Vertical Card Style
+const GallerySlider2 = () => {
+  const galleryImages2 = [
+    {
+      id: 1,
+      src: "https://placehold.co/400x500/8B593E/FFFFFF/png",
+      alt: "Portfolio Image 1",
+      title: "Financial Planning",
+      description: "Strategic wealth management solutions",
+    },
+    {
+      id: 2,
+      src: "https://placehold.co/400x500/F9B22B/FFFFFF/png",
+      alt: "Portfolio Image 2",
+      title: "Investment Advisory",
+      description: "Expert investment guidance",
+    },
+    {
+      id: 3,
+      src: "https://placehold.co/400x500/2e4667/FFFFFF/png",
+      alt: "Portfolio Image 3",
+      title: "Retirement Planning",
+      description: "Secure your future today",
+    },
+    {
+      id: 4,
+      src: "https://placehold.co/400x500/8B593E/FFFFFF/png",
+      alt: "Portfolio Image 4",
+      title: "Tax Optimization",
+      description: "Minimize tax liabilities",
+    },
+    {
+      id: 5,
+      src: "https://placehold.co/400x500/F9B22B/FFFFFF/png",
+      alt: "Portfolio Image 5",
+      title: "Estate Planning",
+      description: "Legacy preservation strategies",
+    },
+  ];
+
+  return (
+    <section className="py-16 bg-gradient-to-b from-[#FDF1F5] to-white">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-4 text-neutral-800">
+            Our <span className="text-[#F9B22B]">Gallery</span>
+          </h2>
+          <p className="text-base md:text-lg text-neutral-700 max-w-2xl mx-auto">
+            Discover our comprehensive range of financial services
+          </p>
+        </div>
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={1}
+          spaceBetween={30}
+          loop={true}
+          centeredSlides={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
+          className="portfolio-swiper"
+        >
+          {galleryImages2.map((image) => (
+            <SwiperSlide key={image.id}>
+              <div className="group relative h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-all duration-300">
+                  <h3 className="text-2xl font-bold mb-2 group-hover:translate-y-[-8px] transition-transform duration-300">
+                    {image.title}
+                  </h3>
+                  <p className="text-sm text-gray-200 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                    {image.description}
+                  </p>
+
+                  {/* Decorative Line */}
+                  <div className="w-16 h-1 bg-[#F9B22B] mt-4 group-hover:w-24 transition-all duration-300"></div>
+                </div>
+
+                {/* Corner Badge */}
+                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <span className="text-white text-xs font-semibold">
+                    Featured
+                  </span>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
+  );
+};
+
+// CONTACT FORM COMPONENT
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+    }, 1500);
+  };
+
+  return (
+    <section
+      className="py-16 bg-gradient-to-br from-[#F5F7FA] to-[#E8EDF2]"
+      id="contact"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-4 text-neutral-800">
+            Get In <span className="text-[#8B593E]">Touch</span>
+          </h2>
+          <p className="text-base md:text-lg text-neutral-700 max-w-2xl mx-auto">
+            Have questions or ready to start your financial journey? Reach out
+            to us and we&apos;ll get back to you shortly.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          {/* Contact Information */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 space-y-6">
+            <h3 className="text-2xl font-bold text-[#2e4667] mb-6">
+              Contact Information
+            </h3>
+
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="bg-[#8B593E]/10 p-3 rounded-lg">
+                  <svg
+                    className="w-6 h-6 text-[#8B593E]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2e4667] mb-1">Address</h4>
+                  <p className="text-gray-600 text-sm">
+                    123 Financial Street, Business District
+                    <br />
+                    Mumbai, Maharashtra 400001
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-[#8B593E]/10 p-3 rounded-lg">
+                  <svg
+                    className="w-6 h-6 text-[#8B593E]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2e4667] mb-1">Phone</h4>
+                  <p className="text-gray-600 text-sm">+91 98765 43210</p>
+                  <p className="text-gray-600 text-sm">+91 98765 43211</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-[#8B593E]/10 p-3 rounded-lg">
+                  <svg
+                    className="w-6 h-6 text-[#8B593E]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2e4667] mb-1">Email</h4>
+                  <p className="text-gray-600 text-sm">
+                    info@financialconsultant.com
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    support@financialconsultant.com
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-[#8B593E]/10 p-3 rounded-lg">
+                  <svg
+                    className="w-6 h-6 text-[#8B593E]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2e4667] mb-1">
+                    Business Hours
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Monday - Friday: 9:00 AM - 6:00 PM
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    Saturday: 10:00 AM - 2:00 PM
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <h3 className="text-2xl font-bold text-[#2e4667] mb-6">
+              Send Us a Message
+            </h3>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
+                    placeholder="+91 98765 43210"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Subject *
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
+                  placeholder="How can we help you?"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Message *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all resize-none"
+                  placeholder="Tell us more about your inquiry..."
+                />
+              </div>
+
+              {submitStatus === "success" && (
+                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                  <p className="font-medium">Thank you for your message!</p>
+                  <p className="text-sm">
+                    We&apos;ll get back to you as soon as possible.
+                  </p>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-[#8B593E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#6d4430] transition-colors duration-300 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // FAQ DROPDOWN COMPONENT (unchanged)
 const faqs = [
   {
@@ -456,15 +974,15 @@ const Landing = () => {
       {/* About Section */}
       <About />
 
-      {/* What We Do Section */}
+      {/* Why Choose Us Section */}
       <section className="w-full mx-auto bg-white py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-12">
           {/* Left Side: Image */}
           <div className="w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 order-2 lg:order-1">
-            <div className="rounded-lg overflow-hidden w-full bg-gray-100">
+            <div className="rounded-lg overflow-hidden w-full">
               <Image
-                src="/images/what-we-do.png"
-                alt="What We Do"
+                src="/images/choose.svg"
+                alt="Why Choose Us"
                 width={600}
                 height={450}
                 className="object-cover w-full h-auto"
@@ -475,69 +993,68 @@ const Landing = () => {
           {/* Right Side: Content */}
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-black mb-3 sm:mb-4">
-              What We Do
+              Why Choose Us
             </h2>
             <p className="text-lg sm:text-xl font-medium text-[#24334d] mb-2 sm:mb-3">
-              You define freedom. We&apos;ll design the path to help you get
-              there.
+              Your trusted partner in achieving financial success and security.
             </p>
             <p className="text-[#445063] text-sm sm:text-base mb-6 sm:mb-8 max-w-xl">
-              From financial planning to retirement planning and everything in
-              between, our guidance is designed with one goal in mind: to help
-              you find your freedom.
+              We combine expertise, personalized service, and proven strategies
+              to help you navigate your financial journey with confidence and
+              peace of mind.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {/* Left column */}
               <ul className="space-y-3">
                 <li>
-                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
+                  <div className="flex items-center gap-2 bg-white border border-[#F9B22B] rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
-                    Financial Planning
+                    Personalized Approach
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
+                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 border border-[#F9B22B] shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
-                    Retirement Planning
+                    Expert Guidance
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
+                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 border border-[#F9B22B] shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
-                    Estate Planning
+                    Proven Track Record
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
+                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 border border-[#F9B22B] shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
-                    Investment Management
+                    Comprehensive Solutions
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
+                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 border border-[#F9B22B] shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
-                    Tax Planning
+                    Client-Centric Focus
                   </div>
                 </li>
               </ul>
               {/* Right column */}
               <ul className="space-y-3">
                 <li>
-                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
+                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 border border-[#F9B22B] shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
-                    Business Ownership
+                    Transparent Communication
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
+                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 border border-[#F9B22B] shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
-                    Private Client Services
+                    Long-Term Relationships
                   </div>
                 </li>
                 <li>
-                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
+                  <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 border border-[#F9B22B] shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
-                    Insurance Consultation
+                    Integrity & Trust
                   </div>
                 </li>
               </ul>
@@ -551,6 +1068,15 @@ const Landing = () => {
 
       {/* Testimonial Section */}
       <Testimonial />
+
+      {/* Gallery Slider Section */}
+      <GallerySlider />
+
+      {/* Gallery Slider 2 Section - Portfolio Style */}
+      <GallerySlider2 />
+
+      {/* Contact Form Section */}
+      <ContactForm />
 
       {/* FAQ Section - Dropdown Style */}
       <FaqDropdown />
