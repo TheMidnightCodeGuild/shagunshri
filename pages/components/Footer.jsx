@@ -4,25 +4,25 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-white  text-gray-900">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-white text-gray-900">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="text-center sm:text-left">
-            <div className="mb-4 flex justify-center sm:justify-start">
+            <div className="mb-3 sm:mb-4 flex justify-center sm:justify-start">
               <Image
                 src="/images/logo.png"
                 alt="ShagunShri"
                 width={160}
                 height={160}
-                className="w-auto h-auto rounded-3xl mx-12 object-cover"
+                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-3xl object-cover"
                 priority
               />
             </div>
-            <div className="space-y-3">
-              <p className="text-sm flex items-start gap-2">
+            <div className="space-y-2 sm:space-y-3">
+              <p className="text-xs sm:text-sm flex items-start gap-2">
                 <svg
-                  className="w-4 h-4 mt-1 flex-shrink-0"
+                  className="w-3 h-3 sm:w-4 sm:h-4 mt-1 flex-shrink-0"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   aria-hidden="true"
@@ -34,9 +34,9 @@ const Footer = () => {
                   Pradesh 456010
                 </span>
               </p>
-              <p className="text-sm flex items-center gap-2">
+              <p className="text-xs sm:text-sm flex items-center gap-2">
                 <svg
-                  className="w-4 h-4 flex-shrink-0"
+                  className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   aria-hidden="true"
@@ -50,9 +50,9 @@ const Footer = () => {
                   +91 98260 79995
                 </a>
               </p>
-              <p className="text-sm flex items-center gap-2">
+              <p className="text-xs sm:text-sm flex items-center gap-2">
                 <svg
-                  className="w-4 h-4 flex-shrink-0"
+                  className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   aria-hidden="true"
@@ -72,12 +72,14 @@ const Footer = () => {
 
           {/* Services */}
           <div className="text-center sm:text-left">
-            <h3 className="text-black text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2.5">
+            <h3 className="text-black text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+              Services
+            </h3>
+            <ul className="space-y-2 sm:space-y-2.5">
               <li>
                 <Link
                   href="/services/Misselling-of-insurance-policy"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Mutual Fund
                 </Link>
@@ -85,7 +87,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services/Claim-rejection"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Stock Market
                 </Link>
@@ -93,7 +95,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services/Delay-in-claimprocess"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Insurance
                 </Link>
@@ -101,7 +103,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services/Claim-shortsettled"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Retirement Planning
                 </Link>
@@ -109,7 +111,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services/Health-Claim-Reimbursment"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Tax Planning
                 </Link>
@@ -117,7 +119,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services/Know-your-policy"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Portfolio Management Services (PMS)
                 </Link>
@@ -127,14 +129,14 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
-            <h3 className="text-black text-lg font-semibold mb-4">
+            <h3 className="text-black text-base sm:text-lg font-semibold mb-3 sm:mb-4">
               Quick Links
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2 sm:space-y-2.5">
               <li>
                 <Link
                   href="/"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Home
                 </Link>
@@ -145,7 +147,7 @@ const Footer = () => {
                   href="https://shagunshri.com/who-we-are"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Who We Are
                 </a>
@@ -153,7 +155,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact-us"
-                  className="text-sm hover:text-[#1AC0D8] transition-colors"
+                  className="text-xs sm:text-sm hover:text-[#1AC0D8] transition-colors"
                 >
                   Contact Us
                 </Link>
@@ -163,11 +165,11 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="text-center sm:text-left">
-            <h3 className="text-black text-lg font-semibold mb-4">
+            <h3 className="text-black text-base sm:text-lg font-semibold mb-3 sm:mb-4">
               Social Media Handles
             </h3>
 
-            <div className="flex justify-center sm:justify-start gap-4">
+            <div className="flex justify-center sm:justify-start gap-3 sm:gap-4">
               <a
                 // href="https://www.facebook.com/share/19Bb2UPHeg/?mibextid=wwXIfr"
                 target="_blank"
@@ -176,7 +178,7 @@ const Footer = () => {
                 aria-label="Facebook"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -192,7 +194,7 @@ const Footer = () => {
                 aria-label="Instagram"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -207,12 +209,12 @@ const Footer = () => {
 
       {/* Bottom Footer */}
       <div className="border-t border-gray-800">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+            <p className="text-xs sm:text-sm">
               © {new Date().getFullYear()} ShagunShri. All rights reserved.
             </p>
-            <p className="text-base text-gray-400 ">
+            <p className="text-sm sm:text-base text-gray-400">
               Designed and developed by{" "}
               <a
                 href="https://noxalgo.com"

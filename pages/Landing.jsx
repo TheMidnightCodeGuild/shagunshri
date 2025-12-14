@@ -45,13 +45,13 @@ const GallerySlider = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-[1300px] mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-4 text-neutral-800">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-neutral-800">
             Our <span className="text-[#8B593E]">Gallery</span>
           </h2>
-          <p className="text-base md:text-base text-neutral-900 max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-neutral-900 max-w-4xl mx-auto px-2">
             Explore our collection of memorable moments
           </p>
         </div>
@@ -93,10 +93,10 @@ const GallerySlider = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="text-center mt-8">
+        <div className="text-center mt-6 sm:mt-8">
           <Link
             href="/gallery"
-            className="inline-block bg-[#8B593E] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#6d4430] transition-colors duration-300 shadow-md"
+            className="inline-block bg-[#8B593E] text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base rounded-full hover:bg-[#6d4430] transition-colors duration-300 shadow-md"
           >
             View All
           </Link>
@@ -147,13 +147,13 @@ const GallerySlider2 = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-[#FDF1F5] to-white">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-4 text-neutral-800">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#FDF1F5] to-white">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-neutral-800">
             Our <span className="text-[#F9B22B]">Gallery</span>
           </h2>
-          <p className="text-base md:text-lg text-neutral-700 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-neutral-700 max-w-2xl mx-auto px-2">
             Discover our comprehensive range of financial services
           </p>
         </div>
@@ -181,7 +181,7 @@ const GallerySlider2 = () => {
         >
           {galleryImages2.map((image) => (
             <SwiperSlide key={image.id}>
-              <div className="group relative h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105">
+              <div className="group relative h-[350px] sm:h-[400px] md:h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105">
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -192,21 +192,21 @@ const GallerySlider2 = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-all duration-300">
-                  <h3 className="text-2xl font-bold mb-2 group-hover:translate-y-[-8px] transition-transform duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 text-white transform transition-all duration-300">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2 group-hover:translate-y-[-8px] transition-transform duration-300">
                     {image.title}
                   </h3>
-                  <p className="text-sm text-gray-200 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-xs sm:text-sm text-gray-200 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
                     {image.description}
                   </p>
 
                   {/* Decorative Line */}
-                  <div className="w-16 h-1 bg-[#F9B22B] mt-4 group-hover:w-24 transition-all duration-300"></div>
+                  <div className="w-12 sm:w-16 h-1 bg-[#F9B22B] mt-2 sm:mt-4 group-hover:w-20 sm:group-hover:w-24 transition-all duration-300"></div>
                 </div>
 
                 {/* Corner Badge */}
-                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                  <span className="text-white text-xs font-semibold">
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                  <span className="text-white text-[10px] sm:text-xs font-semibold">
                     Featured
                   </span>
                 </div>
@@ -265,30 +265,30 @@ const ContactForm = () => {
 
   return (
     <section
-      className="py-16 bg-gradient-to-br from-[#F5F7FA] to-[#E8EDF2]"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-[#F5F7FA] to-[#E8EDF2]"
       id="contact"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-4 text-neutral-800">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-neutral-800">
             Get In <span className="text-[#8B593E]">Touch</span>
           </h2>
-          <p className="text-base md:text-lg text-neutral-700 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-neutral-700 max-w-2xl mx-auto px-2">
             Have questions or ready to start your financial journey? Reach out
             to us and we&apos;ll get back to you shortly.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-start">
           {/* Contact Information */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 space-y-6">
+          <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
             <h3 className="text-2xl font-bold text-[#2e4667] mb-6">
               Contact Information
             </h3>
 
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="bg-[#8B593E]/10 p-3 rounded-lg">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="bg-[#8B593E]/10 p-2 sm:p-3 rounded-lg">
                   <svg
                     className="w-6 h-6 text-[#8B593E]"
                     fill="none"
@@ -310,8 +310,10 @@ const ContactForm = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[#2e4667] mb-1">Address</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-semibold text-[#2e4667] mb-1 text-sm sm:text-base">
+                    Address
+                  </h4>
+                  <p className="text-gray-600 text-xs sm:text-sm">
                     123 Financial Street, Business District
                     <br />
                     Mumbai, Maharashtra 400001
@@ -401,12 +403,12 @@ const ContactForm = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8">
             <h3 className="text-2xl font-bold text-[#2e4667] mb-6">
               Send Us a Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               <div>
                 <label
                   htmlFor="name"
@@ -421,7 +423,7 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -441,7 +443,7 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -459,7 +461,7 @@ const ContactForm = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
                     placeholder="+91 98765 43210"
                   />
                 </div>
@@ -479,7 +481,7 @@ const ContactForm = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all"
                   placeholder="How can we help you?"
                 />
               </div>
@@ -498,7 +500,7 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all resize-none"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B593E] focus:border-transparent outline-none transition-all resize-none"
                   placeholder="Tell us more about your inquiry..."
                 />
               </div>
@@ -515,7 +517,7 @@ const ContactForm = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#8B593E] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#6d4430] transition-colors duration-300 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#8B593E] text-white font-semibold px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg hover:bg-[#6d4430] transition-colors duration-300 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
@@ -559,9 +561,9 @@ const FaqDropdown = () => {
   };
 
   return (
-    <section className="bg-[#F5F7FA] py-16" id="faq">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-[#2e4667] mb-8">
+    <section className="bg-[#F5F7FA] py-8 sm:py-12 md:py-16 lg:py-20" id="faq">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#2e4667] mb-6 sm:mb-8">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
@@ -569,17 +571,17 @@ const FaqDropdown = () => {
             <div className="bg-white rounded-lg shadow" key={i}>
               <button
                 onClick={() => handleToggle(i)}
-                className={`w-full flex justify-between items-center px-6 py-5 focus:outline-none transition-colors duration-200 ${
+                className={`w-full flex justify-between items-center px-4 sm:px-6 py-3 sm:py-5 focus:outline-none transition-colors duration-200 ${
                   openIndex === i ? "bg-[#F9B22B]/10" : ""
                 }`}
                 aria-expanded={openIndex === i}
                 aria-controls={`faq-answer-${i}`}
               >
-                <span className="text-lg font-semibold text-[#2e4667] text-left">
+                <span className="text-sm sm:text-base md:text-lg font-semibold text-[#2e4667] text-left">
                   {faq.question}
                 </span>
                 <svg
-                  className={`h-5 w-5 text-[#F9B22B] transition-transform duration-300 ml-4 ${
+                  className={`h-4 w-4 sm:h-5 sm:w-5 text-[#F9B22B] transition-transform duration-300 ml-2 sm:ml-4 flex-shrink-0 ${
                     openIndex === i ? "rotate-180" : ""
                   }`}
                   fill="none"
@@ -597,12 +599,12 @@ const FaqDropdown = () => {
               </button>
               <div
                 id={`faq-answer-${i}`}
-                className={`overflow-hidden transition-all duration-300 px-6 ${
+                className={`overflow-hidden transition-all duration-300 px-4 sm:px-6 ${
                   openIndex === i ? "max-h-40 py-2" : "max-h-0"
                 }`}
                 style={{ minHeight: 0 }}
               >
-                <p className="text-[#4B6278] text-base">
+                <p className="text-[#4B6278] text-sm sm:text-base">
                   <span
                     dangerouslySetInnerHTML={{
                       __html: faq.answer,
@@ -687,13 +689,16 @@ const Testimonial = () => {
 
   return (
     <>
-      <section id="testimonials" className="py-16 ">
-        <div ref={sectionRef} className="max-w-[1300px] mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-4 text-neutral-800">
+      <section id="testimonials" className="py-8 sm:py-12 md:py-16 lg:py-20">
+        <div
+          ref={sectionRef}
+          className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-neutral-800">
               What Our <span className="text-[#8B593E]">Clients</span> Say
             </h2>
-            <p className="text-base md:text-base text-neutral-900 max-w-4xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-neutral-900 max-w-4xl mx-auto px-2">
               Discover the experiences of individuals and families we&apos;ve
               helped achieve their financial goals
             </p>
@@ -725,9 +730,9 @@ const Testimonial = () => {
           >
             {TestimonialData.map((data) => (
               <SwiperSlide key={data.id}>
-                <div className="bg-white rounded-lg shadow-xl overflow-hidden h-[300px] border-2 border-[#8B593E]">
-                  <div className="p-6 flex flex-col justify-between h-full">
-                    <div className="text-gray-600 italic mb-4 flex-grow overflow-y-auto">
+                <div className="bg-white rounded-lg shadow-xl overflow-hidden h-[280px] sm:h-[300px] border-2 border-[#8B593E]">
+                  <div className="p-4 sm:p-5 md:p-6 flex flex-col justify-between h-full">
+                    <div className="text-gray-600 italic mb-3 sm:mb-4 flex-grow overflow-y-auto text-sm sm:text-base">
                       &quot;{data.content}&quot;
                     </div>
                     <div className="flex items-center mt-auto">
@@ -735,16 +740,16 @@ const Testimonial = () => {
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 512 512"
-                          className="w-12 h-12 text-[#8B593E]"
+                          className="w-10 h-10 sm:w-12 sm:h-12 text-[#8B593E]"
                         >
                           <path d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
                         </svg>
                       </div>
-                      <div className="ml-4">
-                        <div className="text-lg font-medium text-[#4A2511]">
+                      <div className="ml-3 sm:ml-4">
+                        <div className="text-base sm:text-lg font-medium text-[#4A2511]">
                           {data.name}
                         </div>
-                        <div className="text-sm text-[#8B593E]">
+                        <div className="text-xs sm:text-sm text-[#8B593E]">
                           {data.role}
                         </div>
                       </div>
@@ -763,9 +768,9 @@ const Testimonial = () => {
 // ABOUT SECTION (inserted after hero section)
 const About = () => {
   return (
-    <div className="min-h-screen pt-8 sm:pt-12 pb-8 sm:pb-12 px-4 md:px-12 ">
+    <div className="min-h-screen pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-8 sm:pb-12 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="lg:max-w-[1300px] mx-auto">
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center mb-6 sm:mb-10">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center mb-0">
           <div className="relative h-[300px] sm:h-[400px] md:h-[550px] w-full rounded-lg overflow-hidden order-2 md:order-1">
             <Image
               src="/images/about.png"
@@ -776,18 +781,18 @@ const About = () => {
             />
           </div>
           <div className="order-1 md:order-2">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">
               About Me
             </h1>
-            <div className="h-1 sm:h-1.5 w-16 sm:w-20 md:w-28 bg-orange-600 rounded-full mx-0 mb-3 sm:mb-6"></div>
-            <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
+            <div className="h-1 sm:h-1.5 w-16 sm:w-20 md:w-28 bg-orange-600 rounded-full mx-0 mb-3 sm:mb-4 md:mb-6"></div>
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-3 sm:mb-4 md:mb-6">
               As a dedicated financial consultant, I specialize in guiding
               individuals, families, and small businesses toward greater
               financial clarity and prosperity. My approach centers on
               personalized advice, helping you make informed decisions across
               investments, tax planning, insurance, retirement, and more.
             </p>
-            <p className="text-base sm:text-lg text-gray-700">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700">
               Trust, integrity, and lasting relationships are at the heart of my
               practice. Together, we&apos;ll chart your financial
               course—empowering you to achieve your goals and build a secure
@@ -885,7 +890,7 @@ const Services = () => {
                   }`}
                 >
                   {/* Front */}
-                  <div className="absolute inset-0 bg-white rounded-xl border border-gray-800 p-4 sm:p-6 lg:p-8 flex flex-col items-center justify-center [backface-visibility:hidden]">
+                  <div className="absolute inset-0 bg-white rounded-xl border border-gray-800 p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col items-center justify-center [backface-visibility:hidden]">
                     <div className="flex flex-col items-center">
                       <div className="relative w-20 h-20 sm:w-48 sm:h-36 mb-4 sm:mb-1 flex items-center justify-center">
                         <Image
@@ -901,7 +906,7 @@ const Services = () => {
                     </div>
                   </div>
                   {/* Back */}
-                  <div className="absolute inset-0 h-full w-full rounded-xl bg-slate-50 p-4 text-center [transform:rotateY(180deg)] [backface-visibility:hidden] flex items-center justify-center">
+                  <div className="absolute inset-0 h-full w-full rounded-xl bg-slate-50 p-4 sm:p-5 md:p-6 text-center [transform:rotateY(180deg)] [backface-visibility:hidden] flex items-center justify-center">
                     <div className="flex min-h-full flex-col items-center justify-center">
                       <p className="text-sm sm:text-base text-gray-900 font-medium">
                         {service.description}
@@ -922,7 +927,7 @@ const Landing = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-start">
+      <div className="relative min-h-[100vh] flex items-center justify-start">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -942,20 +947,20 @@ const Landing = () => {
           ></div>
         </div>
         {/* Main Content */}
-        <div className="relative z-10 text-left px-4 sm:px-8 lg:pl-20 max-w-2xl mt-40 sm:mt-48 md:mt-36 flex flex-col items-start">
-          <span className="tracking-wide uppercase text-white text-xs sm:text-base font-semibold mb-2 sm:mb-0 ">
+        <div className="relative z-10 text-left px-4 sm:px-6 md:px-8 lg:px-12 xl:pl-20 max-w-2xl mt-32 sm:mt-36 md:mt-40 lg:mt-44 flex flex-col items-start">
+          <span className="tracking-wide uppercase text-white text-xs sm:text-sm md:text-base font-semibold mb-2 sm:mb-3">
             Your Trusted{" "}
             <span className="text-[#F9B22B]">Financial Consultant</span>
           </span>
-          <div className="flex items-center mb-3 sm:mb-5">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white ">
+          <div className="flex items-center mb-3 sm:mb-4 md:mb-5">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
               Empower{" "}
               <span className="text-[#f3f5f7] font-bold">
                 Your Financial Journey
               </span>
             </h1>
           </div>
-          <p className="text-base sm:text-lg max-w-xl text-[#dbebfd] font-normal mb-6 sm:mb-8 leading-relaxed italic">
+          <p className="text-sm sm:text-base md:text-lg max-w-xl text-[#dbebfd] font-normal mb-5 sm:mb-6 md:mb-8 leading-relaxed italic">
             Financial consulting is more than just numbers—it&apos;s about
             understanding your goals and building a secure future. As your
             dedicated consultant, I guide you through investments, insurance,
@@ -964,7 +969,7 @@ const Landing = () => {
           </p>
           <Link
             href="/components/Contact-us"
-            className="inline-block bg-[#F9B22B] text-[#234] font-bold px-6 py-2.5 text-base rounded-full border-2 border-[#fff4] hover:bg-[#f5a311] hover:text-white transition-all duration-300 shadow-md focus:outline-none"
+            className="inline-block bg-[#F9B22B] text-[#234] font-bold px-5 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base rounded-full border-2 border-[#fff4] hover:bg-[#f5a311] hover:text-white transition-all duration-300 shadow-md focus:outline-none"
           >
             Speak with an Expert
           </Link>
@@ -975,10 +980,10 @@ const Landing = () => {
       <About />
 
       {/* Why Choose Us Section */}
-      <section className="w-full mx-auto bg-white py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-12">
+      <section className="w-full mx-auto bg-white py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
           {/* Left Side: Image */}
-          <div className="w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 order-2 lg:order-1">
+          <div className="w-full lg:w-1/2 mb-0 order-2 lg:order-1">
             <div className="rounded-lg overflow-hidden w-full">
               <Image
                 src="/images/choose.svg"
@@ -1003,9 +1008,9 @@ const Landing = () => {
               to help you navigate your financial journey with confidence and
               peace of mind.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 md:gap-4">
               {/* Left column */}
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-2.5 md:space-y-3">
                 <li>
                   <div className="flex items-center gap-2 bg-white border border-[#F9B22B] rounded-lg px-3 sm:px-4 py-2 shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>
@@ -1038,7 +1043,7 @@ const Landing = () => {
                 </li>
               </ul>
               {/* Right column */}
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-2.5 md:space-y-3">
                 <li>
                   <div className="flex items-center gap-2 bg-white rounded-lg px-3 sm:px-4 py-2 border border-[#F9B22B] shadow text-[#2e4667] font-medium text-sm sm:text-base">
                     <span className="inline-block w-2 h-2 bg-[#F9B22B] rounded-full mr-2 shrink-0"></span>

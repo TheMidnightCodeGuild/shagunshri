@@ -3,10 +3,14 @@
 
 * {
   font-family: "Lato", sans-serif !important;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Lato", sans-serif !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 html {

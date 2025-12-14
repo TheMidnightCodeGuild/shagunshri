@@ -132,7 +132,7 @@ const Header = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-y-1 sm:space-x-4">
               <Link
                 href="mailto:support@insurancesamadhan.com"
-                className="flex items-center hover:text-gray-200 text-xs sm:text-sm"
+                className="flex items-centezr hover:text-gray-200 text-xs sm:text-sm"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
